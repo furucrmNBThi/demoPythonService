@@ -4,17 +4,10 @@ from pyramid.response import Response
 import os
 import time
 
-def test(environ, start_response):
+def test():
     print("app is running")
     time.sleep(5)
-    response_body = 'Hello World'
-    status = '200 OK'
-
-    response_headers = [('Content-Type', 'text/plain'),
-                           ('Content-Length', str(len(response_body)))]
-
-    start_response(status, response_headers)
-    return [response_body]
+    return test()
 
 def hello_world(request):
     name = os.environ.get('NAME')
@@ -25,6 +18,7 @@ def hello_world(request):
 
 
 if __name__ == '__main__':
+    test()
     port = int(os.environ.get("PORT"))
     with Configurator() as config:
         config.add_route('hello', '/')
