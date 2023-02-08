@@ -4,11 +4,9 @@ from pyramid.response import Response
 import os
 
 def hello_world(request):
-    name = os.environ.get('NAME')
-    if name == None or len(name) == 0:
-        name = "world"
-    message = "Hello, " + name + "!\n"
-    return Response(message)
+     print("app is running")
+    time.sleep(5)
+    return test()
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT"))
