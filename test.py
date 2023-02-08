@@ -19,11 +19,11 @@ def hello_world(request):
 
 
 if __name__ == '__main__':
-    test()
     port = int(os.environ.get("PORT"))
     with Configurator() as config:
         config.add_route('hello', '/')
         config.add_view(hello_world, route_name='hello')
         app = config.make_wsgi_app()
     server = make_server('0.0.0.0', port, app)
+    test()
     server.serve_forever()
