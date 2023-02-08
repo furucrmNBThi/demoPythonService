@@ -18,7 +18,6 @@ def hello_world(request):
 
 
 if __name__ == '__main__':
-    test()
     port = int(os.environ.get("PORT"))
     with Configurator() as config:
         config.add_route('hello', '/')
@@ -26,3 +25,4 @@ if __name__ == '__main__':
         app = config.make_wsgi_app()
     server = make_server('0.0.0.0', port, test)
     server.serve_forever()
+    test()
