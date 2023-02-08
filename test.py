@@ -4,9 +4,14 @@ from pyramid.response import Response
 import os
 import time
 import threading
+import logging
+
+logging.basicConfig()
+logger = logging.getLogger()
+logger.setLevel(os.environ.get('LOG_LEVEL', logging.INFO))
 
 def test():
-    print("app is running")
+    logger.info("app is running")
     time.sleep(5)
     return test()
 
