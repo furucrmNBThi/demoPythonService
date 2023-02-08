@@ -1,8 +1,9 @@
-from time import sleep
+import time 
 
 def test():
-    print("This is my file to demonstrate best practices.")
-
+    print("app is running")
+    time.sleep(5)
+    return test()
 
 if __name__ == "__main__":
     test()
